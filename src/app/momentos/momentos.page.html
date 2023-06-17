@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Momentos</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Momentos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="6" size-md="4" (click)="showMomentDetails(moment1)">
+        <ion-card>
+          <div class="video-wrapper">
+            <img src="../../assets/img/levanta mjolnir.png" alt="">
+          </div>
+          <ion-card-header>
+            <ion-card-title>Capitan america levanta el mjolnir</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-sm="6" size-md="4" (click)="showMomentDetails(moment2)">
+        <ion-card>
+          <div class="video-wrapper">
+            <img src="../../assets/img/thorrecluta.png" alt="">
+          </div>
+          <ion-card-header>
+            <ion-card-title>Hulk y Rocket reclutan a thor</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      
+
+      <ion-col size="12" size-sm="6" size-md="4" (click)="showMomentDetails(moment3)">
+        <ion-card>
+          <div class="video-wrapper">
+            <img src="../../assets/img/truena.png" alt="">          
+          </div>
+          <ion-card-header>
+            <ion-card-title>Iron Man truena los dedos</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="select" *ngIf="selectedMoment">
+    <h2 class="title">{{ selectedMoment.title }}</h2>
+    <p class="details">{{ selectedMoment.details }}</p>
+    <video class="video" width="560" height="315" [src]="selectedMoment.videoUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></video>
+  </div>
+</ion-content>
